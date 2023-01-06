@@ -10,6 +10,7 @@ export interface IInputs {
   label: string
   name: string
   required: boolean
+  type: string
 }
 
 export interface ICheckbox extends IInputs{}
