@@ -10,7 +10,7 @@ type State = {
 const UserSubmissionTable: React.FC<{ data: State }> = ({ data }) => {
   if (data.length > 0) {
     return (
-      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+      <Grid templateColumns={{base: 'max-content', sm:"repeat(1, 0.9fr)", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)"}} gap={6}>
         {data.map((e) => {
           return (
             <ScaleFade key={e.id} in initialScale={0.2}>

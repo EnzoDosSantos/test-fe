@@ -20,7 +20,7 @@ const ModalCards: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <>
       <Flex w={'100vw'} h={'100vh'} justify={'center'} align={'center'}>
         <Button w={400} h={100} mt={3} ref={btnRef} onClick={onOpen}>
-          Presiona Aquí para ver a las respuestas!
+          Presiona aquí para ver a las respuestas!
         </Button>
       </Flex>
       <Modal
