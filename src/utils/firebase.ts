@@ -1,28 +1,36 @@
-import { DocumentData, collection, getDocs, doc, setDoc } from 'firebase/firestore';
+import { DocumentData, collection, getDocs, doc, addDoc, DocumentReference } from 'firebase/firestore';
 import { db } from '../config/firebase';
+import type { IFormData } from '../../types';
 
-export const saveFormData = async (
+export const saveFormData = async(
   full_name: string,
   email: string,
   birth_date: string,
   country_of_origin: string,
-  collectionRef: string = "forms",
-  documentName: string = full_name,
-  terms_and_conditions: boolean = false
-) => {
-  await setDoc(doc(db, collectionRef, documentName), {
+  terms_and_conditions: boolean
+  ): Promise<boolean> => {
+  const collectionRef = collection(db, 'forms');
+  const formData: IFormData = {
     full_name,
-    email,
     birth_date,
     country_of_origin,
+    email,
     terms_and_conditions
-  });
+  };
+
+  try {
+    await addDoc(collectionRef, formData);
+    return true
+  } catch (error) {
+    console.error(error)
+    return false
+  }
 };
 
-export const getCollectionElements = async <T extends DocumentData>(): Promise<
+export const getCollectionElements = async <T extends DocumentData>(collectionRef: string = "forms"): Promise<
   { value: T; id: string }[]
 > => {
-  const querySnapshot = await getDocs(collection(db, 'hola'));
+  const querySnapshot = await getDocs(collection(db, collectionRef));
   const documents: { value: T; id: string }[] = [];
   querySnapshot.forEach((doc) => {
     documents.push({

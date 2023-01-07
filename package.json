@@ -14,9 +14,11 @@
     "@emotion/styled": "^11.10.5",
     "@types/firebase": "^3.2.1",
     "firebase": "9.6.2",
-    "framer-motion": "^8.1.9",
+    "formik": "^2.2.9",
+    "framer-motion": "^8.2.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

@@ -3,7 +3,5 @@ export interface IFormData {
   email: string;
   birth_date: string;
   country_of_origin: string;
-  collectionRef: string;
-  documentName: string;
   terms_and_conditions: boolean;
 }
