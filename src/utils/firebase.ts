@@ -7,7 +7,7 @@ export const saveFormData = async(
   email: string,
   birth_date: string,
   country_of_origin: string,
-  terms_and_conditions: boolean = false
+  terms_and_conditions: boolean
   ): Promise<boolean> => {
   const collectionRef = collection(db, 'forms');
   const formData: IFormData = {
